@@ -19,7 +19,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const authRouter = require('./routes/auth');
 const storyRouter = require('./routes/stories');
 const commentRouter = require('./routes/comments');
-const indexRouter = require('./routes/index');
 
 var app = express();
 app.use(cors());
@@ -35,8 +34,7 @@ app.use(cookieParser());
 
 app.use('/api/auth',authRouter);
 app.use('/api/stories',storyRouter);
-app.use('/',commentRouter);
-app.use('/',indexRouter)
+app.use('/api/stories',commentRouter);
 
 
 // catch 404 and forward to error handler
@@ -53,7 +51,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.send('Page does not exist!');
+  res.send('Something went wrong!');
 });
 
 module.exports = app;
