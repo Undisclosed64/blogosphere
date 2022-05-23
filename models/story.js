@@ -7,7 +7,7 @@ author:{type:Schema.Types.ObjectId,ref:'User',required:true},
 title:{type:String,required:true},
 text:{type:String,required:true},
 dated:{type:Date},
-comments:{type:Array,deafult:[]}
+comments:[{type:Schema.Types.ObjectId,ref:'Comment'}]
 })
 
 //virtual for story url

@@ -21,3 +21,22 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+ post===null ?  <div className="App">Loading..</div> :
+    <div className="App">
+     <Home post={post}/>
+    </div>
+
+
+      {props.post.map(home => 
+            <div key={home._id}onClick={<StoryDetails/>}>
+             <div className='post-cell'>
+            <h2>{home.title}</h2>
+            <h4>{home.author.username}</h4>
+            <p>{home.dated}</p> 
+            </div>       
+            </div>
+            )}
+
+           
