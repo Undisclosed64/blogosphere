@@ -1,54 +1,43 @@
 import './App.css';
 import axios from 'axios';
-import React, { useState } from "react";
+import React from "react";
 import Home from './components/Home';
-import StoryDetails from './components/StoryDetails'
+import SignUp from './components/SignUp'
 import Loader from './components/Loader';
-import SignUp from './components/SignUp';
-
-
+import Navbar from './components/Navbar';
 import {
   BrowserRouter,
   Routes,
-  Route,
-  Link,
-  Switch
+  Route
 } from 'react-router-dom';
+import StoryDetails from './components/StoryDetails';
 
+const baseURL = "http://localhost:3000/api";
 
-//const baseURL = "http://localhost:3000/stories";  
 
 function App(){
-    const [posts,setPost] = useState(null)
-  React.useEffect(()=> {
-    axios.get("http://localhost:3000/stories").then((res)=> {
-      setPost(res.data)
-    })
-  },[]);
-  //console.log(post)
+  const [post, setPost] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(`${baseURL}/stories`).then((response) => {
+      console.log(response.data)
+      setPost(response.data);
+    });
+  }, []);
+
+  if(!post) return <Loader/>;
+
   return (
     <div className="App">
     <BrowserRouter>
-   <ul>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/sign-up">Sign up</Link>
-      </li>
-      <li>
-        <Link to="/log-in">Sign in</Link>
-      </li>
-    </ul>
+    <Navbar/>
 <Routes>
-<Route exact path='/'element={posts===null ? <Loader/> : <Home posts={posts}></Home>}/>  
+<Route exact path='/'element={<Home name='Tahera'post={post}></Home>}/>  
+<Route exact path='/stories/:storyId'element={<StoryDetails></StoryDetails>}/>  
 <Route exact path='/sign-up'element={<SignUp></SignUp>}/>    
-
  </Routes>
  </BrowserRouter>
  </div>
-
- 
   );
 }
 

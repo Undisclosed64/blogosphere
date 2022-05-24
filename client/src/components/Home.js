@@ -1,21 +1,34 @@
 import React from 'react';
 import '../App.css';
 import StoryDetails from './StoryDetails'
+import { useNavigate } from "react-router-dom"
 
 
 function Home(props) {
-    console.log(props.posts)
+    const stories = props.post.stories;
+
+   const navigate = useNavigate();
+
+   //define funtion to navigate to story model route
+    function storyModelNavigate(id){
+       navigate(`/stories/${id}`)
+    }
     return (
-        <div>
-            <h1>Welcome to the blog home page!</h1>
-            {props.posts.map(home => 
-            <div key={home._id}>
-             <div className='post-cell'>
-            <h2>{home.title}</h2>
-            <h4>{home.author.username}</h4>
-            <p>{home.dated}</p> 
+        <div className='story-container'>
+            {stories.map(story => 
+            <div key={story._id}className="story-wrapper"onClick={()=>storyModelNavigate(story._id)}>
+            <div className='author-profile'>
+             <span>
+                 {story.author.username}
+            </span>
+            <span>
+                 {story.dated}
+            </span>
+            </div>   
+            <h2>{story.title}</h2>
+            <p>{story.text}</p>
+
             </div>       
-            </div>
             )}
         </div>
     );
