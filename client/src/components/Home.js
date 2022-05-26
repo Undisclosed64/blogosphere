@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import StoryDetails from './StoryDetails'
 import { useNavigate } from "react-router-dom"
 
 

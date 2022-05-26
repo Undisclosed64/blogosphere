@@ -38,28 +38,27 @@ exports.handleSignUp = function(req,res){
 exports.handleSignIn = 
   async (req, res) => {
 
-    try {
       const user = await User.findOne({ username: req.body.username });
       
       //check if user exists
-      if(user===null) res.status(404).json('User does not exist!')
+      if(user===null) res.json({
+        status:404,
+        message:'User does not exist!'})
       
       //check if password is correct
       if(await bcrypt.compare(req.body.password,user.password)){
        jwt.sign({user},'secretkey',(err,token)=> {
        res.json({
+         user,
         token
        })
      })
       
       } else {
-        res.status(401).json({
+        res.json({
+        status:401,
         message: "Password is incorrect!!"})
       }
 
-    } catch (err) {
-      res.status(500).json(err);
-    }
+    } 
     
-
-}

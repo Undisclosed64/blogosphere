@@ -7,7 +7,12 @@ const jwt = require("jsonwebtoken");
     exports.postStory = [
         (req, res, next) => {
         jwt.verify(req.token,'secretkey',(err,authData) => {
-        if (err) return res.status(400).json(err);
+        if (err){
+          res.json({
+            status:404,
+            message:'Invalid token'
+          })
+        }
         req.auth_data = authData
          next()
         })

@@ -16,7 +16,11 @@ function verifyToken(req,res,next){
  
   } else {
       //forbidden
-      res.sendStatus(403);
+      res.sendStatus({
+        status:403,
+        message:'You are not authorized to access it'
+      }
+        );
   }
 
 }
