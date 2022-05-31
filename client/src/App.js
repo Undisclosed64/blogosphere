@@ -13,6 +13,7 @@ import {
   Route
 } from 'react-router-dom';
 import StoryDetails from './components/StoryDetails';
+import EditStory from './components/EditStory';
 
 const baseURL = "http://localhost:3000/api";
 
@@ -27,6 +28,7 @@ function App(){
     });
   }, []);
 
+
   if(!post) return <Loader/>;
 
   return (
@@ -34,11 +36,17 @@ function App(){
     <BrowserRouter>
     <Navbar/>
 <Routes>
-<Route exact path='/'element={<Home name='Tahera'post={post}></Home>}/>  
+<Route exact path='/'element={<Home name='Tahera'post={post}></Home>}/> 
+
 <Route exact path='/stories/:storyId'element={<StoryDetails></StoryDetails>}/> 
-<Route exact path='/stories/create'element={<CreateStory></CreateStory>}/> 
+
+<Route exact path='/stories/create'element={<CreateStory></CreateStory>}/>
+
+<Route exact path='/stories/:storyId/edit'element={<EditStory></EditStory>}/> 
+
 <Route exact path='/sign-up'element={<SignUp></SignUp>}/>
 <Route exact path='/sign-in'element={<SignIn></SignIn>}/>    
+
   
 
  </Routes>
