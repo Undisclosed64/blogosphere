@@ -81,6 +81,7 @@ exports.updateStory = [
             text: req.body.text,
             author: req.authData.user._id,
             dated: Date.now(),
+            comments:req.body.comments,
             _id: req.params.id,
           });
 
@@ -95,17 +96,23 @@ Story.findByIdAndUpdate(req.params.id,story,{new: true})
 
 //delete handler for story
 exports.deleteStory = function(req,res){
-    (req, res, next) => {
+    (req, res) => {
         jwt.verify(req.token, 'secretkey', (err, authData) => {
-          if (err) return res.status(400).json(err);
+          res.json({
+            status:404,
+            message:'Invalid token'
+          })
           req.authData = authData;
-          next();
         });
       },
 
     Story.findByIdAndRemove(req.params.id,function(err){
-        if(err) return res.json(err)
-        res.json({message:'Story deleted successfully!'})
+        if(err){
+          res.json(err)
+        }
+        res.json({
+          message:'Story deleted successfully!'
+        })
     })
 }
   

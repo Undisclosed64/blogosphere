@@ -7,27 +7,38 @@ import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import SignIn from './components/SignIn';
 import CreateStory from './components/CreateStory'
+import DeleteStory from './components/DeleteStory';
+import CommentView from './components/CommentView';
+
 import {
   BrowserRouter,
   Routes,
   Route
 } from 'react-router-dom';
 import StoryDetails from './components/StoryDetails';
-import EditStory from './components/EditStory';
 
 const baseURL = "http://localhost:3000/api";
 
 
 function App(){
   const [post, setPost] = React.useState(null);
+  const [user,setUser] = React.useState('');
+  const token = localStorage.getItem('token');
+
 
   React.useEffect(() => {
     axios.get(`${baseURL}/stories`).then((response) => {
-      console.log(response.data)
+      //console.log(response.data)
       setPost(response.data);
     });
   }, []);
 
+  React.useEffect(() => {
+    axios.get(`${baseURL}/auth/user`,{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
+      setUser(response.data.user)
+    });
+  }, []);
+  
 
   if(!post) return <Loader/>;
 
@@ -38,11 +49,15 @@ function App(){
 <Routes>
 <Route exact path='/'element={<Home name='Tahera'post={post}></Home>}/> 
 
-<Route exact path='/stories/:storyId'element={<StoryDetails></StoryDetails>}/> 
+<Route exact path='/stories/:storyId'element={<StoryDetails user={user}></StoryDetails>}/> 
 
 <Route exact path='/stories/create'element={<CreateStory></CreateStory>}/>
 
-<Route exact path='/stories/:storyId/edit'element={<EditStory></EditStory>}/> 
+<Route exact path='/stories/:storyId/update'element={<StoryDetails user={user}></StoryDetails>}/> 
+
+<Route exact path='/stories/:storyId/delete'element={<DeleteStory></DeleteStory>}/> 
+
+<Route exact path='/stories/:storyId/comments/:commentId'element={<CommentView user={user}></CommentView>}/> 
 
 <Route exact path='/sign-up'element={<SignUp></SignUp>}/>
 <Route exact path='/sign-in'element={<SignIn></SignIn>}/>    

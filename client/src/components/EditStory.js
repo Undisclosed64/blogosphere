@@ -1,5 +1,4 @@
 import axios from 'axios'
-import e from 'express';
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import Loader from './Loader';
@@ -15,12 +14,14 @@ export default function EditStory() {
     React.useEffect(() => {
     axios.get(`${baseURL}/${storyId}`).then((response) => {
       console.log(response.data);
-      setStory(response.data);
+     setStory(response.data);
     });
   }, []);
+  
   function handleSubmit(e){
    alert('submit')
   }
+  
 
   if(!story) return <Loader/>
   return (
@@ -30,7 +31,7 @@ export default function EditStory() {
        <form action=''onSubmit = {handleSubmit}method='POST'>
          <div></div>
         <input type="text"  name="title"placeholder='Title'value={story.story.title}/>
-        <input type="text"  name="text"placeholder='Text'value={story.story.text}/>
+        <input type="text"  name="text"placeholder='Text'value={story.story.text} />
         <button type="submit">Submit</button>
         </form>   
     </div>

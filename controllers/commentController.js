@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 
 //handler for posting comment
-exports.postComment = [
+exports.postComment =  [
     (req, res, next) => {
     jwt.verify(req.token,'secretkey',(err,authData) => {
         if (err){
@@ -86,19 +86,19 @@ exports.updateComment = [
 
 
 //delete comment handler
-exports.deleteComment = [
-    
-    (req, res, next) => {
+exports.deleteComment = function(req,res){
+    (req, res) => {
         jwt.verify(req.token,'secretkey',(err,authData) => {
             if (err){
-                res.status(403).json(err);
+                res.json({
+                    status:404,
+                    message:'Invalid token'
+                  }) 
             } 
             req.auth_data = authData
-            next()
         })
     },
 
-    (req, res) => {
     Story.findById(req.params.id)
     .exec(function(err,story){
         if(err){
@@ -111,8 +111,10 @@ exports.deleteComment = [
          }
          story.comments.pull({_id:req.params.commentId});
          story.save();
-         res.json({'message':'Comment deleted succesffully!'})
+         res.json({
+             message:'Comment deleted!'
+            })
+           
      })
     })
 }
-]

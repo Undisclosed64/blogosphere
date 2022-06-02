@@ -62,3 +62,15 @@ exports.handleSignIn =
 
     } 
     
+exports.getUser = [
+  (req, res) => {
+    jwt.verify(req.token,'secretkey', (err, authData) => {
+      if (err) return res.json({
+        message:'User not verified',
+        status:401
+      });
+      res.json(authData)
+    });
+  },
+
+]
