@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 const baseURL = "http://localhost:3000/api/stories"; 
 
 function StoryDetails(props){
-
+  const path = "http://localhost:3000/images/";
   const [story, setStory] = React.useState(null);
   const { storyId } = useParams();
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ function StoryDetails(props){
   const [storyDesc,setStoryDesc] = React.useState("");
   const [updateMode,setUpdateMode] = React.useState(false);
   const [comments,setComments] = React.useState("");
+
 
   const userId = props.user._id;
   console.log(props.user)
@@ -70,6 +71,8 @@ const handleDeleteClick = () => {
   
   return (
     <div className='story-model-container'>
+
+
     <div onClick={takeToHomePage}>Back</div>
 
 {userId===story.story.author._id ? 
@@ -88,9 +91,12 @@ const handleDeleteClick = () => {
                  {story.story.dated}
             </span>
             </div>  
-            {updateMode ? <input type='text'value={storyTitle}onChange={(e)=>setStoryTitle(e.target.value)}/> :
-            <h2>{story.story.title}</h2>
+
+
+      {updateMode ? <input type='text'value={storyTitle}onChange={(e)=>setStoryTitle(e.target.value)}/> :
+    <h2>{story.story.title}</h2>
   }
+{story.story.photo ? <img src={path + story.story.photo}alt=""/>  : ''}
    {updateMode ? <textarea value={storyDesc}onChange={(e)=>setStoryDesc(e.target.value)}/> :
     <p>{story.story.text}</p>
   }

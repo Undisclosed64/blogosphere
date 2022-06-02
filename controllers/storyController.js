@@ -18,7 +18,23 @@ const jwt = require("jsonwebtoken");
         })
       },
       (req, res) => {
-            const story = new Story({
+        let story = new Story(req.body);
+        story.author =  req.auth_data.user._id;
+        story.dated = Date.now();
+         
+        try {
+          story.save();
+           story.populate('author', 'username',(err,newStory)=> {
+            if (err) return res.json(err);
+            return res.json({
+              newStory});
+          });
+        } catch (err) {
+          res.status(500).json(err);
+        }
+
+
+          /*  const story = new Story({
                 author:req.auth_data.user._id,
                 title:req.body.title,
                 text:req.body.text,
@@ -34,7 +50,7 @@ const jwt = require("jsonwebtoken");
                 return res.json({
                   newStory});
               });
-               })
+               })*/
               
             }
   

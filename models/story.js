@@ -6,8 +6,10 @@ const storySchema = new Schema({
 author:{type:Schema.Types.ObjectId,ref:'User',required:true},
 title:{type:String,required:true},
 text:{type:String,required:true},
+photo:{type:String,required:false},
 dated:{type:Date},
-comments:[{type:Schema.Types.ObjectId,ref:'Comment'}]
+comments:[{type:Schema.Types.ObjectId,ref:'Comment'},
+]
 })
 
 //virtual for story url

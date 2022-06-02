@@ -6,6 +6,10 @@ var logger = require('morgan');
 require('dotenv').config();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const authRouter = require('./routes/auth');
+const storyRouter = require('./routes/stories');
+const commentRouter = require('./routes/comments');
 
 
 //Set up mongoose connection
@@ -15,13 +19,9 @@ mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
-const authRouter = require('./routes/auth');
-const storyRouter = require('./routes/stories');
-const commentRouter = require('./routes/comments');
-
 var app = express();
 app.use(cors());
+app.use("/images", express.static(path.join(__dirname, "/images")));
 
 
 // view engine setup
@@ -31,6 +31,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+const storage = multer.diskStorage({
+  destination:(req,file,cb) =>{
+    cb(null,"images")
+
+  },filename:(req,file,cb) => {
+    cb(null,req.body.name)
+  }
+})
+
+const upload = multer({storage:storage});
+app.post("/api/upload",upload.single("file"),(req,res) => {
+  res.status(200).json("File has been uploaded")
+})
+
 
 app.use('/api/auth',authRouter);
 app.use('/api/stories',storyRouter);
