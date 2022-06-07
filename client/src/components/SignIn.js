@@ -26,7 +26,6 @@ function SignIn(props) {
         if(token !== undefined){
         saveToken(token)
         }
-      
         navigate('/')
       });
       }

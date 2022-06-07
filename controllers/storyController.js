@@ -1,10 +1,10 @@
-const express = require('express');
 const Story = require('../models/story');
 const jwt = require("jsonwebtoken");
 
 
 //handler for story post 
     exports.postStory = [
+      //verify token
         (req, res, next) => {
         jwt.verify(req.token,'secretkey',(err,authData) => {
         if (err){
@@ -17,46 +17,31 @@ const jwt = require("jsonwebtoken");
          next()
         })
       },
+      //define story
       (req, res) => {
         let story = new Story(req.body);
         story.author =  req.auth_data.user._id;
         story.dated = Date.now();
          
+        //save story in try catch
         try {
           story.save();
-           story.populate('author', 'username',(err,newStory)=> {
+          story.populate('author', 'username',(err,newStory)=> {
             if (err) return res.json(err);
-            return res.json({
-              newStory});
+            return res.json(
+              {
+                newStory
+              });
           });
+        //catch err
         } catch (err) {
           res.status(500).json(err);
         }
-
-
-          /*  const story = new Story({
-                author:req.auth_data.user._id,
-                title:req.body.title,
-                text:req.body.text,
-                dated:Date.now()
-            }) 
-         
-            story.save(function(err){
-                if(err){
-                    res.json(err)
-                }
-               story.populate('author', 'username',(err,newStory)=> {
-                if (err) return res.json(err);
-                return res.json({
-                  newStory});
-              });
-               })*/
-              
             }
   
 ]
 
-//model story handler
+//story view handler
 exports.getStory = function(req,res,next){
     Story.findById(req.params.id)
     .populate('author','username')
@@ -91,6 +76,7 @@ exports.updateStory = [
         });
       },
 
+//define update story 
       (req, res) => {
         const story = new Story({
             title: req.body.title,

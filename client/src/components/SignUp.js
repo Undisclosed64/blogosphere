@@ -1,11 +1,11 @@
-import React, { Component }  from 'react';
+import React from 'react';
 import '../App.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
 
-function SignUp(props) {
+function SignUp() {
   const [formData, setFormData] = useState({
     username: "",
     password: ""

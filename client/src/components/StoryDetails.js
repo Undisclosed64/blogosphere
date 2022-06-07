@@ -11,18 +11,18 @@ import { useNavigate } from "react-router-dom";
 const baseURL = "http://localhost:3000/api/stories"; 
 
 function StoryDetails(props){
-  const path = "http://localhost:3000/images/";
   const [story, setStory] = React.useState(null);
   const { storyId } = useParams();
-  const navigate = useNavigate();
   const [storyTitle, setStoryTitle] = React.useState("");
   const [storyDesc,setStoryDesc] = React.useState("");
   const [updateMode,setUpdateMode] = React.useState(false);
   const [comments,setComments] = React.useState("");
-
-
+  const path = "http://localhost:3000/images/";
+  const navigate = useNavigate();
   const userId = props.user._id;
-  console.log(props.user)
+
+  console.log(props.user);
+
   //make the request
   React.useEffect(() => {
     axios.get(`${baseURL}/${storyId}`).then((response) => {
@@ -32,12 +32,12 @@ function StoryDetails(props){
     });
   }, []);
 
-  //fetch comments
+ /* //fetch comments
   React.useEffect(() => {
     axios.get(`${baseURL}/${storyId}/comments`).then((response) => {
       setComments(response.data.comments)
     });
-  }, []);
+  }, []);*/
 
 
   function takeToHomePage(){
@@ -72,7 +72,6 @@ const handleDeleteClick = () => {
   return (
     <div className='story-model-container'>
 
-
     <div onClick={takeToHomePage}>Back</div>
 
 {userId===story.story.author._id ? 
@@ -88,18 +87,20 @@ const handleDeleteClick = () => {
                  {story.story.author.username}
             </span>
             <span>
-                 {story.story.dated}
+                 {new Date(story.story.dated).toDateString()}
             </span>
             </div>  
 
 
-      {updateMode ? <input type='text'value={storyTitle}onChange={(e)=>setStoryTitle(e.target.value)}/> :
+  {updateMode ? <input type='text'value={storyTitle}onChange={(e)=>setStoryTitle(e.target.value)}/> :
     <h2>{story.story.title}</h2>
   }
+
 {story.story.photo ? <img src={path + story.story.photo}alt=""/>  : ''}
    {updateMode ? <textarea value={storyDesc}onChange={(e)=>setStoryDesc(e.target.value)}/> :
     <p>{story.story.text}</p>
   }
+
   {updateMode ? <button onClick={handleUpdate}>Update</button> : '' }
     <hr></hr>
     <h2>Comments</h2>

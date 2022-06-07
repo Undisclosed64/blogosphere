@@ -33,7 +33,7 @@ if(!comments) return <Loader/>
           <div key={comment._id} className='comment-wrapper'onClick={()=>commentModel(comment._id)}>
           <div>{comment.comment}</div> 
           <span>{comment.username}</span>
-          <span>{comment.timeStamp}</span>
+          <span>{new Date(comment.timeStamp).toDateString()}</span>
           </div>
          )}
         </div>

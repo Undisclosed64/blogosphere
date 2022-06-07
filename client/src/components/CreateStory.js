@@ -5,11 +5,12 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
 
-function CreateStory(props) {
+function CreateStory() {
   const [formData, setFormData] = useState({
     title: "",
     text: "",
   });
+
   const [file, setFile] = useState(null);
   const navigate = useNavigate();
 
@@ -54,12 +55,9 @@ function CreateStory(props) {
         )}
         <form action=''onSubmit = {handleSubmit}method='POST'>
         <div className="writeFormGroup">
-          <label htmlFor="fileInput">
-          </label>
-          <input
-            type="file" onChange={(e) => setFile(e.target.files[0])}
-          />
-          </div>
+          <label htmlFor="fileInput"></label>
+          <input type="file" onChange={(e) => setFile(e.target.files[0])}/>
+        </div>
         <input type="text"onChange={(e) => setFormData({...formData,title: e.target.value})}name="title"placeholder='Title'/>
         <textarea type="text"onChange={(e) => setFormData({...formData,text: e.target.value})}  name="text"placeholder='Tell your story...'></textarea>
 

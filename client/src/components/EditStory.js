@@ -1,4 +1,4 @@
-import axios from 'axios'
+/*import axios from 'axios'
 import React from 'react'
 import { useParams } from 'react-router-dom';
 import Loader from './Loader';
@@ -36,4 +36,4 @@ export default function EditStory() {
         </form>   
     </div>
   )
-}
+}*/

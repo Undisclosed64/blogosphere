@@ -1,14 +1,88 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding:0;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+a{
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #000000;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.8;
+  background-attachment: scroll;
+}
+.rhs-links{
+  display: flex;
+}
+.navLinkRight:hover{
+  color: rgb(26, 194, 232);
+}
+.toggle-button{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.bar {
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.navLinkLeft{
+color: #f2f2f2;
+font-size: 17px;
+padding: 0 1em;
+}
+.navLinkRight {
+  color: #f2f2f2;
+  font-size: 17px;
+  padding: 0 1.5em;
+}
+@media only screen and (max-width: 600px) {
+  .toggle-button {
+    display: flex;
+  }
+  .rhs-links {
+    display: none;
+    width: 100%;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rhs-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  .rhs-links .navLinkRight {
+    text-align: center;
+    margin: 0.5em 0;
+  }
+  .rhs-links.active{
+    display: flex;
+    margin: 3em 0;
+  }
+}
+img{
+  width: 100px;
 }
 
-.story-wrapper{
-  margin: 1em;
-  border-bottom: 1px solid #aaa;
-}
-.story-model{
-  border:10px solid #aaa;
-  padding: 2em;
-  width: 50%;
-  margin: auto;
-}
+ 

@@ -22,6 +22,7 @@ exports.postComment =  [
         timeStamp:new Date()
     })
     comment.save();
+    
     Story.findById(req.params.id,function(err,story){
         if(err){res.json(err)}
         story.comments.push(comment);
