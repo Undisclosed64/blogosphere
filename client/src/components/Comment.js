@@ -34,9 +34,10 @@ function Comment(props) {
    
     return (
         <div> 
-       <form action=''onSubmit = {handleSubmit}method='POST'>
-        <input type="text"onChange = {(e) => setFormData({...formData,comment: e.target.value})}  name="comment"placeholder='Write a comment'value={formData.comment}/>
-        <button type="submit">Submit</button>
+       <form action=''onSubmit = {handleSubmit}method='POST'className='comment-form'>
+      
+        <input type="text"onChange = {(e) => setFormData({...formData,comment: e.target.value})}  name="comment"placeholder='What are your thoughts?'value={formData.comment}className='comment-input'/>
+        <button type="submit"className='comment-submit'>Respond</button>
         </form>     
         </div>
       )

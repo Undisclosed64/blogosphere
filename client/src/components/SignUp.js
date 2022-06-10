@@ -20,16 +20,17 @@ function SignUp() {
         
       axios.post('http://localhost:3000/api/auth/sign-up', {username,password })
       .then((result) => {
-        console.log(result.data)
         navigate('/sign-in')
       });
       }
    
     return (
-        <div> 
-        <h1>Sign up</h1>
-        <form action=''onSubmit = {handleSubmit}method='POST'>
+        <div id='signUpSection'> 
+        <form className='form' action=''onSubmit = {handleSubmit}method='POST'>
+        <div className='signUpHeader'>Create account</div>
+        <label for="username">Username</label>
         <input type="text"onChange = {(e) => setFormData({...formData,username: e.target.value})}  name="username"placeholder='Your name'value={formData.username}/>
+        <label for="password">Password</label>
         <input type="text" onChange = {(e) => setFormData({...formData, password: e.target.value})}  name="password"placeholder='Create password'value={formData.password}/>
         <button type="submit">Submit</button>
         </form>     

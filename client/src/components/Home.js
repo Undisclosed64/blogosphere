@@ -3,19 +3,17 @@ import '../App.css';
 import { useNavigate } from "react-router-dom";
 import {FaUserCircle} from 'react-icons/fa';
 
-const date = new Date();
-console.log(date.toDateString())
 function Home(props) {
     const stories = props.post.stories;
-   const navigate = useNavigate();
+    const navigate = useNavigate();
 
+    
    //define funtion to navigate to story model route
     function storyModelNavigate(id){
        navigate(`/stories/${id}`)
     }
     return (
         <section className='section-home'>
-
             <div className='homePage'>
             <h1 id='blog-name'>Techno Diary</h1>
             <p className='blog-intro'>What is Lorem Ipsum?
@@ -29,7 +27,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 
             <img src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG5hdHVyZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=600&q=60"alt=""className='blogImg'></img>
             <div className='story-info'>
-
+            
+            <h2 className='story-title'>{story.title}</h2>
+            <p className='story-desc'>{story.text}</p>
             <div className='publish-info'>
 
             <div className='author-profile'>
@@ -40,9 +40,6 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             <span className='seperator'>|</span>
             <div className='written-date'>{new Date(story.dated).toDateString()}</div> 
             </div> 
-            
-            <h2 className='story-title'>{story.title}</h2>
-            <p className='story-desc'>{story.text}</p>
              </div>
              </div>
             )}

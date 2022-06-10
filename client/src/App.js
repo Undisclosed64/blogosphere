@@ -12,6 +12,7 @@ import DeleteStory from './components/DeleteStory';
 import CommentView from './components/CommentView';
 
 
+
 import {
   BrowserRouter,
   Routes,
@@ -21,17 +22,22 @@ import {
 const baseURL = "http://localhost:3000/api";
 
 
-function App(){
+function App(props){
   const [post, setPost] = React.useState(null);
   const [user,setUser] = React.useState('');
+  const [err,setErrMsg] = React.useState('');
   const token = localStorage.getItem('token');
+
 
  //get posts
   React.useEffect(() => {
-    axios.get(`${baseURL}/stories`).then((response) => {
-      //console.log(response.data)
+    axios.get(`${baseURL}/stories`)
+    .then((response) => {
       setPost(response.data);
-    });
+    }).catch(err => {
+      //console.log(err)
+      setErrMsg(err); 
+    })
   }, []);
 
 //get current user
@@ -40,10 +46,14 @@ function App(){
       setUser(response.data.user)
     });
   }, []);
+
+
   
-
-  if(!post) return <Loader/>;
-
+if(!err){
+if(!post) return <Loader/>
+} else {
+return <div className='homePageError'>Error: Failed to fetch:( </div>
+}
   return (
     <div className="App">
     <BrowserRouter>
@@ -63,7 +73,7 @@ function App(){
 
 <Route exact path='/sign-up'element={<SignUp></SignUp>}/>
 
-<Route exact path='/sign-in'element={<SignIn></SignIn>}/>    
+<Route exact path='/sign-in'element={<SignIn></SignIn>}/> 
 
  </Routes>
  </BrowserRouter>

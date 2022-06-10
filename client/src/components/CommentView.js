@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader';
+import {FiEdit} from 'react-icons/fi'
+import {AiOutlineDelete} from 'react-icons/ai'
 
 
 
@@ -23,7 +25,6 @@ function CommentView(props) {
 
 const handleUpdate = async () => {
     const comment = commentBody;
-    
   try{
   await axios.put(`${baseURL}/${storyId}/comments/${commentId}`, {comment},{ headers: {"Authorization" : `Bearer ${token}`}})
   .then((result) => {
@@ -44,6 +45,9 @@ React.useEffect(() => {
   }, []);
 
   const handleDelete = async() => {
+   const ask = prompt("Are you sure you want to delete?");
+   if(ask==='yes' || ask === 'yeah' || ask === 'yea' )
+
   try{
   await axios.delete(`${baseURL}/${storyId}/comments/${commentId}`,{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
         console.log(response.data)
@@ -54,26 +58,31 @@ React.useEffect(() => {
     } catch(err) {
       console.log(err)
       setMessage(err)
-    }
+    } 
+   
 } 
 
   if(!comment) return <Loader/>
     return (
+      <div className='commentView'>
         <div className='comment-model'>
-
+<div className='editDelGroup'>
 {userName === comment.comment.username ? 
-        <button onClick={() => setUpdateMode(true)}>Edit</button>
+        <span onClick={() => setUpdateMode(true)}className="commentBtn"id='edBtn'>
+          <FiEdit/>
+          </span>
     : '' }
     {userName === comment.comment.username ? 
-        <button onClick={handleDelete}>Delete</button>
+        <span onClick={handleDelete}className="commentBtn"id='delBtn'><AiOutlineDelete/></span>
     : '' }
-
+</div>
         {updateMode ? 
-        <input type='text'value={commentBody} onChange={(e)=> setCommentBody(e.target.value)}/> :
-        <h2>{comment.comment.comment}</h2>
+        <input type='text'className="commentEditInput"value={commentBody} onChange={(e)=> setCommentBody(e.target.value)}/> :
+        <p className='commentModelText'>{comment.comment.comment}</p>
       }
-      {updateMode ? <button onClick={handleUpdate}>Update</button> : ''}
+      {updateMode ? <button className='updateBtn'onClick={handleUpdate}>Update</button> : ''}
 
+        </div>
         </div>
     )
 

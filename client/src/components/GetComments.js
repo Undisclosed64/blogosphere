@@ -3,6 +3,7 @@ import '../App.css';
 import axios from 'axios';
 import Loader from './Loader';
 import { useNavigate } from "react-router-dom";
+import {FaUserCircle} from 'react-icons/fa';
 
 
 
@@ -31,9 +32,17 @@ if(!comments) return <Loader/>
        <div className='commentContainer'>
          {comments.comments.map(comment => 
           <div key={comment._id} className='comment-wrapper'onClick={()=>commentModel(comment._id)}>
-          <div>{comment.comment}</div> 
-          <span>{comment.username}</span>
-          <span>{new Date(comment.timeStamp).toDateString()}</span>
+            <div className='comment-info'>
+              <span id="commentAuthorIcon">
+            <FaUserCircle/>
+            </span>
+            <div className='commentUserDate'>
+          <span className='comment-author'>{comment.username} </span>
+          <span className='comment-time'>{new Date(comment.timeStamp).toDateString()}</span>
+          </div>
+          </div>
+
+          <div className='comment-text'>{comment.comment}</div> 
           </div>
          )}
         </div>
