@@ -38,7 +38,7 @@ const handleUpdate = async () => {
 //make the request
 React.useEffect(() => {
     axios.get(`${baseURL}/${storyId}/comments/${commentId}`).then((response) => {
-      console.log(response.data);
+      //console.log(response.data);
       setComment(response.data);
       setCommentBody(response.data.comment.comment)
     });
