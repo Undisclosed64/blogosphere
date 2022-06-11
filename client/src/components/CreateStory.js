@@ -38,7 +38,7 @@ function CreateStory() {
           }
         }
       try{
-      const res = await axios.post('http://localhost:3000/api/stories', newPost, { headers: {"Authorization" : `Bearer ${token}`}})
+      const res = await axios.post('https://secret-garden-80299.herokuapp.com/api/stories', newPost, { headers: {"Authorization" : `Bearer ${token}`}})
        const id = res.data.newStory._id;
        navigate(`/stories/${id}`)
       // console.log(res.data);

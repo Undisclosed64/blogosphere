@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 import { useState } from 'react';
 
-const baseURL = "http://localhost:3000/api/stories"; 
+const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
 function Comment(props) {
 //set state of form field

@@ -10,7 +10,7 @@ import {FaUserCircle} from 'react-icons/fa';
 
 
 
-const baseURL = "http://localhost:3000/api/stories"; 
+const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
 function StoryDetails(props){
   const [story, setStory] = React.useState(null);
@@ -19,7 +19,7 @@ function StoryDetails(props){
   const [storyDesc,setStoryDesc] = React.useState("");
   const [updateMode,setUpdateMode] = React.useState(false);
   const [comments,setComments] = React.useState("");
-  const path = "http://localhost:3000/images/";
+  const path = "https://secret-garden-80299.herokuapp.com/images/";
   const navigate = useNavigate();
   const [user, setUser] = React.useState(null);
   

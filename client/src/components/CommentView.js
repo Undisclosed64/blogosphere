@@ -10,7 +10,7 @@ import {AiOutlineDelete} from 'react-icons/ai'
 
 
 
-const baseURL = "http://localhost:3000/api/stories"; 
+const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
 function CommentView(props) {
    const navigate = useNavigate();

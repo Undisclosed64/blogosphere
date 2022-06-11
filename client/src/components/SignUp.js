@@ -18,7 +18,7 @@ function SignUp() {
         const username = formData.username;
         const password = formData.password;
         
-      axios.post('http://localhost:3000/api/auth/sign-up', {username,password })
+      axios.post('https://secret-garden-80299.herokuapp.com/api/auth/sign-up', {username,password })
       .then((result) => {
         navigate('/sign-in')
       });

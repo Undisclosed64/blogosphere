@@ -7,7 +7,7 @@ import {FaUserCircle} from 'react-icons/fa';
 
 
 
-const baseURL = "http://localhost:3000/api/stories"; 
+const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
 function GetComments(props) {
     const navigate = useNavigate();
