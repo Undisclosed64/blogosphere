@@ -10,6 +10,8 @@ const multer = require('multer');
 const authRouter = require('./routes/auth');
 const storyRouter = require('./routes/stories');
 const commentRouter = require('./routes/comments');
+const apicache = require("apicache");
+
 
 
 //Set up mongoose connection
@@ -27,6 +29,11 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
+//configure apicache 
+let cache = apicache.middleware
+  
+//caching all routes for 5 minutes
+app.use(cache('5 minutes'))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -1,7 +1,6 @@
 import React from 'react';
 import '../App.css';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
 
@@ -11,8 +10,6 @@ function SignIn(props) {
     password: ""
   });
   const [errorMsg,setErrorMsg] = useState('');
-  const [successMsg,setSuccessMsg] = useState('');
-  const navigate = useNavigate();
 
     
       function handleSubmit(e){
@@ -33,8 +30,6 @@ function SignIn(props) {
       }
       function saveToken(token){
         localStorage.setItem('token', `${token}`);
-        //const getToken = localStorage.getItem('token')
-       // console.log(getToken)
       }
    
     return (
@@ -42,9 +37,9 @@ function SignIn(props) {
         <div className='errorMsg'>{errorMsg}</div>
         <form className='form' action=''onSubmit = {handleSubmit}method='POST'>
         <div className='signInHeader'>Log in</div>
-        <label for="username">Username</label>
+        <label htmlFor="username">Username</label>
         <input type="text"onChange = {(e) => setFormData({...formData,username: e.target.value})}  name="username"placeholder='Enter name'value={formData.username}/>
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input type="text" onChange = {(e) => setFormData({...formData, password: e.target.value})}  name="password"placeholder='Enter password'value={formData.password}/>
         <button type="submit">Submit</button>
         </form> 

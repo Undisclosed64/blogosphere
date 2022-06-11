@@ -5,9 +5,11 @@
   margin: 0;
   padding:0;
 }
+html {
+  scroll-behavior: smooth;
+}
 body{
   font-family: 'Poppins', sans-serif;
-
 }
 a{
   text-decoration: none;
@@ -21,6 +23,9 @@ nav {
 }
 .rhs-links{
   display: flex;
+}
+button:hover{
+  cursor: pointer;
 }
 .toggle-button{
   position: absolute;
@@ -91,7 +96,7 @@ padding: 0 1em;
 
 }
 .section-story{
-  background-color: #EEEEEE;
+  background-color: #f4f0f0;
 
 }
 .story-container{
@@ -101,7 +106,6 @@ padding: 0 1em;
   gap:30px;
   margin: 0 auto;
   padding: 5em 1em;
-
 }
 
 .story-wrapper{
@@ -286,9 +290,11 @@ padding: 0 1em;
 }
 #edBtn{
   color: rgb(26, 137, 23);
+  cursor: pointer;
 }
 #delBtn{
   color: red;
+  cursor: pointer;
 }
 .commentEditInput{
   padding: 2em;
@@ -354,7 +360,7 @@ form input:focus{
 .form button{
   cursor: pointer;
   border:none;
-  background-color: rgb(21, 186, 15);
+  background: rgb(26, 137, 23);
   color: white;
   text-transform: uppercase;
   margin-top: 50px;
@@ -378,19 +384,68 @@ form input:focus{
   font-weight: 500;
   text-align: center;
 }
-.successMsg{
-  font-size: 1.5rem;
-  margin-bottom: 1em;
-  color: rgb(21, 186, 15);
-  font-weight: 500;
-  text-align: center;
-}
 .loader{
   display: flex;
   justify-content: center;
   margin-top: 1em;
 }
+.accountSection{
+ margin: 5em 0.5em;
 
+}
+.accountView{
+  background-color: #f0f2f5;
+  display: flex;
+  padding: 1em;
+  margin: auto;
+  min-height: 400px;
+  flex-direction: column;
+  border-radius: 10px;
+  color:#292929;
+  max-width: 400px;
+  align-items: center;
+}
+
+.user{
+  font-size: 2rem;
+  margin-right: 0.3em;
+  height: 50px;
+  width: 50px;
+  background-color:#292929;
+  padding: 0.1em;
+  border-radius: 50%;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user-control{
+  display: flex;
+}
+
+.username{
+  font-size: 2rem;
+  font-weight: 500;
+}
+#accountDesc{
+ padding: 6em 0;
+ font-size: 1.1rem;
+ text-align: center;
+ color:#757575
+
+}
+.logOut{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 4em;
+}
+.logInAsk{
+color: #757575;
+font-size: 1.3rem;
+
+}
 @media only screen and (min-width: 400px) {
   .homePage{
     padding: 6em 2em;
@@ -414,6 +469,12 @@ form input:focus{
     padding: 5em 2em;
     
     }
+    .accountSection{
+      margin: 5em 2em;
+     }
+     .accountView{
+       padding: 2em 1em;
+     }
  
   
 }

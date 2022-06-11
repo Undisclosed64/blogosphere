@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 
 
+
 function CreateStory() {
   const [formData, setFormData] = useState({
     title: "",
@@ -40,7 +41,7 @@ function CreateStory() {
       const res = await axios.post('http://localhost:3000/api/stories', newPost, { headers: {"Authorization" : `Bearer ${token}`}})
        const id = res.data.newStory._id;
        navigate(`/stories/${id}`)
-       console.log(res.data);
+      // console.log(res.data);
     } catch(err){
 
     }
@@ -59,8 +60,7 @@ function CreateStory() {
           <input type="file" onChange={(e) => setFile(e.target.files[0])}/>
         </div>
         <input type="text"onChange={(e) => setFormData({...formData,title: e.target.value})}name="title"placeholder='Title'/>
-        <textarea type="text"onChange={(e) => setFormData({...formData,text: e.target.value})}  name="text"placeholder='Tell your story...'></textarea>
-
+        <input type="text"onChange={(e) => setFormData({...formData,text: e.target.value})}name="text"placeholder='Tell your story..'/>
         <button type="submit">Publish</button>
         </form>     
         </div>

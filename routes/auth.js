@@ -14,4 +14,6 @@ router.post('/sign-in',authController.handleSignIn);
 //post request for login
 router.get('/user',verifyToken,authController.getUser);
 
+
+
 module.exports = router;

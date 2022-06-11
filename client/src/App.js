@@ -6,10 +6,11 @@ import SignUp from './components/SignUp'
 import Loader from './components/Loader';
 import Navbar from './components/Nav';
 import SignIn from './components/SignIn';
-import CreateStory from './components/CreateStory';
 import StoryDetails from './components/StoryDetails';
 import DeleteStory from './components/DeleteStory';
 import CommentView from './components/CommentView';
+import Account from './components/Account';
+import LogOut from './components/LogOut';
 
 
 
@@ -22,7 +23,7 @@ import {
 const baseURL = "http://localhost:3000/api";
 
 
-function App(props){
+function App(){
   const [post, setPost] = React.useState(null);
   const [user,setUser] = React.useState('');
   const [err,setErrMsg] = React.useState('');
@@ -61,8 +62,6 @@ return <div className='homePageError'>Error: Failed to fetch:( </div>
 <Routes>
 <Route exact path='/'element={<Home post={post}></Home>}/> 
 
-<Route exact path='/stories/create'element={<CreateStory></CreateStory>}/>
-
 <Route exact path='/stories/:storyId'element={<StoryDetails user={user}></StoryDetails>}/> 
 
 <Route exact path='/stories/:storyId/update'element={<StoryDetails user={user}></StoryDetails>}/> 
@@ -74,6 +73,10 @@ return <div className='homePageError'>Error: Failed to fetch:( </div>
 <Route exact path='/sign-up'element={<SignUp></SignUp>}/>
 
 <Route exact path='/sign-in'element={<SignIn></SignIn>}/> 
+
+<Route exact path='/account'element={<Account user={user}></Account>}/> 
+<Route exact path='/log-out'element={<LogOut></LogOut>}/> 
+
 
  </Routes>
  </BrowserRouter>

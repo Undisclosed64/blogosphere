@@ -1,42 +1,53 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import {
     Link,
   } from 'react-router-dom';
 
 
-export default class Nav extends Component {
+function Nav(){
+const user = localStorage.getItem('token');
 
-makeNavResponsive = () => {
+function makeNavResponsive(){
 const navbarLinks = document.querySelector('.rhs-links');
 navbarLinks.classList.toggle('active');
 }
 
-closeNav = () => {
+function closeNav(){
   const navbarLinks = document.querySelector('.rhs-links');
   navbarLinks.classList.toggle('active');
 }
-  render() {
     return (
       <header>
       <nav className='nav'>
          <Link to="/"className='navLinkLeft'>Home</Link>
+
          <div>
-        <a href="#"className='toggle-button'onClick={this.makeNavResponsive}>
+        <a href="#"className='toggle-button'onClick={makeNavResponsive}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
         </a>
         </div>
-         <div className='rhs-links'onClick={this.closeNav}>
+        {!user ? 
+         <div className='rhs-links'onClick={closeNav}>
          <Link to="/sign-in"className='navLinkRight'>Log in</Link>
-         <Link to="/sign-up"className='navLinkRight'>Create account</Link>
-         </div>
+         <Link to="/sign-up"className='navLinkRight'>Create account</Link> 
+         </div> 
+         : 
+         <div className='rhs-links'onClick={closeNav}>
+         <Link to="/account"className='navLinkRight'>Account</Link>
+         <Link to="/log-out"className='navLinkRight'>Log out</Link> 
+         </div> 
+}
+         
+        
+
      </nav>
   </header>
 
     )
-  }
 }
 
 
+export default Nav;

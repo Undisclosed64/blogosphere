@@ -6,6 +6,8 @@ import {FaUserCircle} from 'react-icons/fa';
 function Home(props) {
     const stories = props.post.stories;
     const navigate = useNavigate();
+    const path = "http://localhost:3000/images/";
+
 
     
    //define funtion to navigate to story model route
@@ -25,7 +27,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             {stories.map(story => 
             <div key={story._id}className="story-wrapper"onClick={()=>storyModelNavigate(story._id)}>
                 
-            <img src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG5hdHVyZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=600&q=60"alt=""className='blogImg'></img>
+            <img src={`${path}/${story.photo}`}alt=""className='blogImg'></img>
             <div className='story-info'>
             
             <h2 className='story-title'>{story.title}</h2>

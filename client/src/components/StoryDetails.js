@@ -21,17 +21,20 @@ function StoryDetails(props){
   const [comments,setComments] = React.useState("");
   const path = "http://localhost:3000/images/";
   const navigate = useNavigate();
-  const userId = props.user._id;
-
-  console.log(props.user);
-
+  const [user, setUser] = React.useState(null);
+  
+  
   //make the request
   React.useEffect(() => {
     axios.get(`${baseURL}/${storyId}`).then((response) => {
       setStory(response.data);
       setStoryTitle(response.data.story.title)
       setStoryDesc(response.data.story.text);
-      setComments(response.data.story.comments)
+      setComments(response.data.story.comments);
+      if(props.user!==undefined){
+        setUser(props.user._id)
+       }
+      
     });
   }, []);
 
@@ -74,10 +77,10 @@ const handleDeleteClick = () => {
             </div>
             </div>  
  <div className='editDeleteCell'>
-{userId===story.story.author._id ? 
+{user===story.story.author._id ? 
    <button onClick={handleOnClick}>Edit story</button> : '' }
  
- {userId===story.story.author._id? 
+ {user===story.story.author._id? 
     <button onClick={handleDeleteClick}>Delete</button> : ''}
 </div>
 
@@ -85,8 +88,7 @@ const handleDeleteClick = () => {
   {updateMode ? <input type='text'value={storyTitle}onChange={(e)=>setStoryTitle(e.target.value)}/> :
     <h2 className='model-story-title'>{story.story.title}</h2>
   }
-     <img src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG5hdHVyZXxlbnwwfDB8MHx8&auto=format&fit=crop&w=600&q=60"alt=""className='model-blog-img'></img>
-
+   
 {story.story.photo ? <img src={path + story.story.photo}alt=""/>  : ''}
    {updateMode ? <textarea value={storyDesc}onChange={(e)=>setStoryDesc(e.target.value)}/> :
     <p className='modelStoryDesc'>{story.story.text}</p>
@@ -97,7 +99,7 @@ const handleDeleteClick = () => {
     <div className='comment-section'>
     <h2 className='comments-header'>Responses</h2>
   
-    <Comment storyId={story.story._id}/>
+    <Comment storyId={story.story._id}user={user}/>
     <GetComments storyId={story.story._id}></GetComments>
     </div>
     </div>

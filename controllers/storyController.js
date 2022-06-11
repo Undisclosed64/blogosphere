@@ -43,6 +43,7 @@ const jwt = require("jsonwebtoken");
 
 //story view handler
 exports.getStory = function(req,res,next){
+  Story.deleteMany({})
     Story.findById(req.params.id)
     .populate('author','username')
     .populate('comments')
