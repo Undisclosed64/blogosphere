@@ -13,7 +13,6 @@ import {AiOutlineDelete} from 'react-icons/ai'
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
 function CommentView(props) {
-   const navigate = useNavigate();
    const userName = props.user.username;
    const { storyId,commentId } = useParams();
    const [comment, setComment] = React.useState(null);
@@ -30,7 +29,7 @@ const handleUpdate = async () => {
   .then((result) => {
     console.log(result.data);
   });
-  navigate(`/stories/${storyId}`)
+  window.localtion.href = `/stories/${storyId}`;
 } catch(err) {
    console.log(err)
   }
