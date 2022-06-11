@@ -6,7 +6,7 @@ import {FaUserCircle} from 'react-icons/fa';
 function Home(props) {
     const stories = props.post.stories;
     const navigate = useNavigate();
-    const path = "http://localhost:3000/images/";
+    const path = "https://secret-garden-80299.herokuapp.com/images/";
 
 
     
