@@ -14,7 +14,7 @@ function Comment(props) {
   //access story id from props
   const storyId = props.storyId;
 
-  const user = props.user;
+  const user = localStorage.getItem('token');
     
   //define submit
       function handleSubmit(e){
