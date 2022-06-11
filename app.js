@@ -59,6 +59,10 @@ app.use('/api/auth',authRouter);
 app.use('/api/stories',storyRouter);
 app.use('/api/stories',commentRouter);
 
+if(process.env.NODE_ENV === 'production'){
+app.use(express.static('client/build'));
+}
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -76,6 +80,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.send('Something went wrong!');
 });
+
+
 
 
 module.exports = app;

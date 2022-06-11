@@ -3,8 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+     "build":"cd client && npm run build",
+     "install-client":"cd client && npm install",
+     "heroku-postbuild": "npm run install-client && npm run build",
+     "start": "node ./bin/www",
+     "devStart":"nodemon ./bin/www",
+    "client":"cd client && npm start"
   },
+  "engines": { "node": "14.15.3" },
+
   "dependencies": {
     "apicache": "^1.6.3",
     "bcryptjs": "^2.4.3",
