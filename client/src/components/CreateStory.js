@@ -32,7 +32,7 @@ function CreateStory() {
           newPost.photo = filename;
 
           try{
-            await axios.post("http://localhost:3000/api/upload",data)
+            await axios.post("https://secret-garden-80299.herokuapp.com/api/upload",data)
           } catch(err){
            
           }

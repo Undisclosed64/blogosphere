@@ -7,8 +7,6 @@ function Home(props) {
     const stories = props.post.stories;
     const navigate = useNavigate();
     const path = "https://secret-garden-80299.herokuapp.com/images/";
-
-
     
    //define funtion to navigate to story model route
     function storyModelNavigate(id){

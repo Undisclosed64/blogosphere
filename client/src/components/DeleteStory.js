@@ -19,13 +19,13 @@ const cancelDelete = () => {
     const deleteStory = async() => {
         try{
         await axios.delete(`${baseURL}/${storyId}`,{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
-            console.log(response.data)
+            //console.log(response.data)
             setMessage(response.data.message);
             window.location.href='/';
           });
  
 } catch(err){
-console.log(err)
+//console.log(err)
 setMessage(err)
 }
 }

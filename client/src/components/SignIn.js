@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 
-function SignIn(props) {
+function SignIn() {
   const [formData, setFormData] = useState({
     username: "",
     password: ""
@@ -17,13 +17,15 @@ function SignIn(props) {
         const username = formData.username;
         const password = formData.password;
         
-      axios.post('https://secret-garden-80299.herokuapp.com/api/auth/sign-in', {username,password })
+      axios.post('http://secret-garden-80299.herokuapp.com/api/auth/sign-in', {username,password })
       .then((result) => {
         if(!result.data.message){
         const token = result.data.token;
+        console.log(result.data)
         saveToken(token);
         window.location.href = '/'
       } else {
+        console.log(result.data);
         setErrorMsg(result.data.message)
       }
         });

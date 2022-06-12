@@ -19,10 +19,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  background-color: #000000;
+  background-color: #0A192F;
 }
 .rhs-links{
   display: flex;
+  align-items: center;
 }
 button:hover{
   cursor: pointer;
@@ -46,12 +47,24 @@ button:hover{
 .navLinkLeft{
 color: #f2f2f2;
 font-size: 17px;
-padding: 0 1em;
+padding: 0 1.5em;
 }
 .navLinkRight {
   color: #f2f2f2;
   font-size: 17px;
-  padding: 0 1.5em;
+}
+#logOutLink{
+  margin-right: 1.5em;
+  margin-left: 3.5em;
+}
+#createAccountLink{
+  border: 1px solid #64FFDA;
+  color: #64FFDA;
+  padding: 1em;
+  border-radius: 2px;
+  margin-right: 1.5em;
+  margin-left: 3.5em;
+  font-size: 14px;
 }
 @media only screen and (max-width: 600px) {
   .toggle-button {
@@ -73,6 +86,12 @@ padding: 0 1em;
     text-align: center;
     margin: 0.5em 0;
   }
+  #logInLink{
+    margin-bottom: 2em;
+  }
+  #createAccountLink{
+   margin: auto;
+  }
   .rhs-links.active{
     display: flex;
     margin: 3em 0;
@@ -89,10 +108,12 @@ padding: 0 1em;
 #blog-name{
   font-size: 2.2rem;
   margin-bottom: 0.3em;
+  color: #0A192F;
 }
 .blog-intro{
   font-size: 1.1rem;
   line-height: 30px;
+  color: #0a192d;
 
 }
 .section-story{
@@ -234,7 +255,7 @@ padding: 0 1em;
   font-size: 1rem;
 }
 .comment-submit{
-  background: rgb(26, 137, 23);
+  background: #64FFDA;
   border:none;
   padding: 0.5em 1em;
   color: white;
@@ -444,7 +465,41 @@ form input:focus{
 .logInAsk{
 color: #757575;
 font-size: 1.3rem;
+text-decoration: underline;
 
+}
+.deleteCommentContainer{
+ background-color: #f0f2f5;
+ padding: 2em;
+ height: 100vh;
+ line-height: 1.8;
+ font-size: 1rem;
+ text-align: center;
+}
+.deleteCommentBtns{
+  margin-top: 1em;
+}
+.btn-cancel,.btn-confirm{
+  padding: 0.5em 2em;
+  font-size: 1rem;
+  border-radius: 25px;
+  border:1px solid #232629;
+}
+.btn-confirm{
+  background-color: #d00000;
+  color: white;
+  border:none;
+  padding: 0.6em 2.1em;
+  margin-left: 1em;
+
+}
+.commentDeletedPage{
+  margin: 4em 1em;
+  text-align: center;
+  line-height: 1.8;
+}
+.commentDeletedPage h1{
+  font-size: 5rem;
 }
 @media only screen and (min-width: 400px) {
   .homePage{

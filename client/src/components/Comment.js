@@ -14,7 +14,7 @@ function Comment(props) {
   //access story id from props
   const storyId = props.storyId;
 
-  const user = localStorage.getItem('token');
+  const user = props.user;
     
   //define submit
       function handleSubmit(e){
@@ -27,18 +27,18 @@ function Comment(props) {
      //make the request
       axios.post(`${baseURL}/${storyId}/comments`,{comment},{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
          //console.log(response.data);
-         window.location.href= `/stories/${storyId}`
+         window.location.href = `/stories/${storyId}`
     });
   }
    
     return (
         <div> 
-          {user?
+          {user ?
        <form action=''onSubmit = {handleSubmit}method='POST'className='comment-form'>
       
         <input type="text"onChange = {(e) => setFormData({...formData,comment: e.target.value})}  name="comment"placeholder='What are your thoughts?'value={formData.comment}className='comment-input'/>
         <button type="submit"className='comment-submit'>Respond</button>
-        </form>  : <div className='logInAsk'>Log in to be able to comment.</div> } 
+        </form>  : <a className='logInAsk'href='/sign-in'>Log in to be able to comment.</a> } 
         </div>
       )
 }

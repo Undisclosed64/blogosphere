@@ -11,8 +11,7 @@ import DeleteStory from './components/DeleteStory';
 import CommentView from './components/CommentView';
 import Account from './components/Account';
 import LogOut from './components/LogOut';
-
-
+import DeleteComment from './components/DeleteComment';
 
 import {
   BrowserRouter,
@@ -25,7 +24,7 @@ const baseURL = "https://secret-garden-80299.herokuapp.com/api";
 
 function App(){
   const [post, setPost] = React.useState(null);
-  const [user,setUser] = React.useState('');
+  const [user,setUser] = React.useState(null);
   const [err,setErrMsg] = React.useState('');
   const token = localStorage.getItem('token');
 
@@ -34,6 +33,7 @@ function App(){
   React.useEffect(() => {
     axios.get(`${baseURL}/stories`)
     .then((response) => {
+     // console.log(response.data)
       setPost(response.data);
     }).catch(err => {
       //console.log(err)
@@ -44,6 +44,7 @@ function App(){
 //get current user
   React.useEffect(() => {
     axios.get(`${baseURL}/auth/user`,{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
+     // console.log(response.data)
       setUser(response.data.user)
     });
   }, []);
@@ -61,8 +62,8 @@ return <div className='homePageError'>Error: Failed to fetch:( </div>
     <Navbar/>
 <Routes>
 <Route exact path='/'element={<Home post={post}></Home>}/> 
-
-<Route exact path='/stories/:storyId'element={<StoryDetails user={user}></StoryDetails>}/> 
+ 
+<Route exact path='/stories/:storyId'element={<StoryDetails user={user}></StoryDetails>}/>
 
 <Route exact path='/stories/:storyId/update'element={<StoryDetails user={user}></StoryDetails>}/> 
 
@@ -70,14 +71,11 @@ return <div className='homePageError'>Error: Failed to fetch:( </div>
 
 <Route exact path='/stories/:storyId/comments/:commentId'element={<CommentView user={user}></CommentView>}/> 
 
+<Route exact path='/stories/:storyId/comments/:commentId/delete'element={<DeleteComment></DeleteComment>}/> 
 <Route exact path='/sign-up'element={<SignUp></SignUp>}/>
-
 <Route exact path='/sign-in'element={<SignIn></SignIn>}/> 
-
 <Route exact path='/account'element={<Account user={user}></Account>}/> 
 <Route exact path='/log-out'element={<LogOut></LogOut>}/> 
-
-
  </Routes>
  </BrowserRouter>
  </div>

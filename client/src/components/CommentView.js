@@ -5,68 +5,61 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Loader from './Loader';
 import {FiEdit} from 'react-icons/fi'
-import {AiOutlineDelete} from 'react-icons/ai'
-
-
+import {AiOutlineDelete} from 'react-icons/ai';
+import CommentDeleted from './CommentDeleted';
 
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
 function CommentView(props) {
+   const navigate = useNavigate();
    const userName = props.user.username;
    const { storyId,commentId } = useParams();
    const [comment, setComment] = React.useState(null);
    const [updateMode,setUpdateMode] = React.useState(false);
   const [commentBody,setCommentBody] = React.useState("");
-  const [message,setMessage] = React.useState('')
+  const [commentErr,setCommentErr] = React.useState(false);
   const token = localStorage.getItem('token');
 
 
 const handleUpdate = async () => {
     const comment = commentBody;
+   // console.log(comment)
   try{
   await axios.put(`${baseURL}/${storyId}/comments/${commentId}`, {comment},{ headers: {"Authorization" : `Bearer ${token}`}})
   .then((result) => {
-    console.log(result.data);
+   // console.log(result.data);
   });
-  window.localtion.href = `/stories/${storyId}`;
+  navigate(`/stories/${storyId}`)
 } catch(err) {
-   console.log(err)
+   //console.log(err)
   }
 }
 //make the request
 React.useEffect(() => {
     axios.get(`${baseURL}/${storyId}/comments/${commentId}`).then((response) => {
-      //console.log(response.data);
+      console.log(response.data);
       setComment(response.data);
       setCommentBody(response.data.comment.comment)
-    });
-  }, []);
+    }).catch(() => {
+     setCommentErr(true)
+    })
+  },
+  []);
 
   const handleDelete = async() => {
-   const ask = prompt("Are you sure you want to delete?");
-   if(ask==='yes' || ask === 'yeah' || ask === 'yea' )
-
-  try{
-  await axios.delete(`${baseURL}/${storyId}/comments/${commentId}`,{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
-        console.log(response.data)
-       setMessage(response.data.message);
-      });
-      window.location.href = `/stories/${storyId}`;
-
-    } catch(err) {
-      console.log(err)
-      setMessage(err)
-    } 
-   
+    navigate(`/stories/${storyId}/comments/${commentId}/delete`)
 } 
 
+  if(commentErr) return <CommentDeleted/>
   if(!comment) return <Loader/>
+  
     return (
       <div className='commentView'>
+        <div>{commentErr}</div>
         <div className='comment-model'>
-<div className='editDelGroup'>
-{userName === comment.comment.username ? 
+    <div className='editDelGroup'>
+    {userName === comment.comment.username ? 
         <span onClick={() => setUpdateMode(true)}className="commentBtn"id='edBtn'>
           <FiEdit/>
           </span>

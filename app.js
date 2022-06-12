@@ -1,16 +1,11 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const path = require('path');
 require('dotenv').config();
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const authRouter = require('./routes/auth');
 const storyRouter = require('./routes/stories');
 const commentRouter = require('./routes/comments');
-const apicache = require("apicache");
 
 
 
@@ -25,19 +20,11 @@ var app = express();
 app.use(cors());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
+const PORT = 4000 || process.env.PORT;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
 
-//configure apicache 
-let cache = apicache.middleware
-  
-//caching all routes for 5 minutes
-app.use(cache('5 minutes'))
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 
 
 const storage = multer.diskStorage({
@@ -59,29 +46,14 @@ app.use('/api/auth',authRouter);
 app.use('/api/stories',storyRouter);
 app.use('/api/stories',commentRouter);
 
+
 if(process.env.NODE_ENV === 'production'){
 app.use(express.static('client/build'));
 }
 
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.send('Something went wrong!');
-});
-
-
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`)
+})
 
 
 module.exports = app;

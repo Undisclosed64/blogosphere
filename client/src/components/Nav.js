@@ -31,13 +31,13 @@ function closeNav(){
         </div>
         {!user ? 
          <div className='rhs-links'onClick={closeNav}>
-         <Link to="/sign-in"className='navLinkRight'>Log in</Link>
-         <Link to="/sign-up"className='navLinkRight'>Create account</Link> 
+         <Link to="/sign-in"className='navLinkRight'id="logInLink">Log in</Link>
+         <Link to="/sign-up"className='navLinkRight'id="createAccountLink">Create account</Link> 
          </div> 
          : 
          <div className='rhs-links'onClick={closeNav}>
          <Link to="/account"className='navLinkRight'>Account</Link>
-         <Link to="/log-out"className='navLinkRight'>Log out</Link> 
+         <Link to="/log-out"className='navLinkRight'id="logOutLink">Log out</Link> 
          </div> 
 }
          
