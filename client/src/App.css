@@ -255,10 +255,10 @@ padding: 0 1.5em;
   font-size: 1rem;
 }
 .comment-submit{
-  background: #64FFDA;
+  background: rgb(26, 137, 23);
   border:none;
   padding: 0.5em 1em;
-  color: white;
+  color: #f0f2f5;
   font-size: 1rem;
   border-radius: 20px;
 }
