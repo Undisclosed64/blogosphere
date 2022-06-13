@@ -24,7 +24,7 @@ function SignUp() {
          } else {
       axios.post('https://secret-garden-80299.herokuapp.com/api/auth/sign-up', {username,password })
       .then((result) => {
-        console.log(result.data)
+        //console.log(result.data)
         navigate('/sign-in')
       });
       }

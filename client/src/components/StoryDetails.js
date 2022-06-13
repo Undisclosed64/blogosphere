@@ -91,7 +91,7 @@ const handleDeleteClick = () => {
     <h2 className='model-story-title'>{story.story.title}</h2>
   }
    
-{story.story.photo ? <img src={path + story.story.photo}alt=""/>  : ''}
+{story.story.photo ? <img src={path + story.story.photo}alt=""className='blogImgModel'/>  : ''}
    {updateMode ? <textarea value={storyDesc}onChange={(e)=>setStoryDesc(e.target.value)}/> :
     <p className='modelStoryDesc'>{story.story.text}</p>
   }

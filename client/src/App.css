@@ -141,6 +141,10 @@ padding: 0 1.5em;
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
 }
+.blogImgModel{
+  width: 100%;
+  display: block;
+}
 .story-info{
   line-height: 1.8;
   padding: 15px;
@@ -185,6 +189,7 @@ padding: 0 1.5em;
  background-color: #FFFFFF;
 
 }
+
 .author-profile{
   display: flex;
   font-size: 1rem;
