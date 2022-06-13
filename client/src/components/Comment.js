@@ -9,14 +9,14 @@ import LoaderCommentPost from './LoaderCommentPost';
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
-
+const id = '62a632fb617c6e9c07d3c546';
 function Comment(props) {
 //set state of form field
   const [formData, setFormData] = useState({
     comment: "",
   });
   const [loaderDisplay,setLoaderDisplay] = useState(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
 
   //access story id from props
@@ -37,7 +37,7 @@ function Comment(props) {
          //console.log(response.data);
         setLoaderDisplay(true)
         setTimeout(
-          () => window.location.reload(false),
+          () => navigate(`/stories/${storyId}`),
           500
         );
     
