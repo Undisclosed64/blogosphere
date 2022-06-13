@@ -37,7 +37,7 @@ function Comment(props) {
          //console.log(response.data);
         setLoaderDisplay(true)
         setTimeout(
-          () => navigate(`/stories/${storyId}`),
+          () => window.location.reload(),
           500
         );
     
