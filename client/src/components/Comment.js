@@ -37,7 +37,7 @@ function Comment(props) {
          //console.log(response.data);
         setLoaderDisplay(true)
         setTimeout(
-          () => window.location.reload(),
+          () => window.location.reload(false),
           500
         );
     
