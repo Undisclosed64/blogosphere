@@ -5,6 +5,8 @@ import { useState } from 'react';
 
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
+const ClientBaseURL = "https://secret-garden-80299.herokuapp.com/stories";
+
 
 function Comment(props) {
 //set state of form field
@@ -28,7 +30,7 @@ function Comment(props) {
      //make the request
       axios.post(`${baseURL}/${storyId}/comments`,{comment},{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
          //console.log(response.data);
-        window.location.href = `${baseURL}/${storyId}`
+        window.location.href = `${ClientBaseURL}/${storyId}`
       
     });
   }

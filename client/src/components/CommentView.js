@@ -10,6 +10,8 @@ import CommentDeleted from './CommentDeleted';
 
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
+const ClientBaseURL = "https://secret-garden-80299.herokuapp.com/stories";
+
 
 function CommentView(props) {
    const navigate = useNavigate();
@@ -26,7 +28,7 @@ const handleUpdate = async () => {
     const comment = commentBody;
    // console.log(comment)
   try{
-  await axios.put(`${baseURL}/${storyId}/comments/${commentId}`, {comment},{ headers: {"Authorization" : `Bearer ${token}`}})
+  await axios.put(`${ClientBaseURL}/${storyId}/comments/${commentId}`, {comment},{ headers: {"Authorization" : `Bearer ${token}`}})
   .then((result) => {
    // console.log(result.data);
   });

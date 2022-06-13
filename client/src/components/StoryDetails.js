@@ -9,9 +9,8 @@ import { useNavigate } from "react-router-dom";
 import {FaUserCircle} from 'react-icons/fa';
 
 
-
-
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
+const ClientBaseURL = "https://secret-garden-80299.herokuapp.com/stories";
 
 function StoryDetails(props){
   const [story, setStory] = React.useState(null);
@@ -50,7 +49,7 @@ function StoryDetails(props){
     
   try{
   await axios.put(`${baseURL}/${storyId}`, {title,text,comments},{ headers: {"Authorization" : `Bearer ${token}`}})
-  window.location.href=`${baseURL}/${storyId}`
+  window.location.href=`${ClientBaseURL}/${storyId}`
   } catch(err) {
    //console.log(err)
   }
