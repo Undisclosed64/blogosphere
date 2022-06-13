@@ -27,7 +27,7 @@ function Comment(props) {
      //make the request
       axios.post(`${baseURL}/${storyId}/comments`,{comment},{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
          //console.log(response.data);
-         window.location.href = `/stories/${storyId}`
+         window.location.href = `${baseURL}/stories/${storyId}`
     });
   }
    

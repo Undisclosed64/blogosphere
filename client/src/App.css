@@ -89,7 +89,7 @@ padding: 0 1.5em;
   #logInLink{
     margin-bottom: 2em;
   }
-  #createAccountLink{
+  #createAccountLink,#logOutLink{
    margin: auto;
   }
   .rhs-links.active{
