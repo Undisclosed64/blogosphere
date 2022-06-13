@@ -8,7 +8,6 @@ import LoaderCommentPost from './LoaderCommentPost';
 
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
-const ClientBaseURL = "https://secret-garden-80299.herokuapp.com/stories";
 
 
 function Comment(props) {
@@ -17,7 +16,7 @@ function Comment(props) {
     comment: "",
   });
   const [loaderDisplay,setLoaderDisplay] = useState(false);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
 
   //access story id from props
@@ -38,11 +37,11 @@ function Comment(props) {
          //console.log(response.data);
         setLoaderDisplay(true)
         setTimeout(
-          () => window.location.href=`/stories/${storyId}`,
-          //1500
+          () => window.location.reload(),
+          500
         );
     
-    });
+   });
   }
    
     return (
