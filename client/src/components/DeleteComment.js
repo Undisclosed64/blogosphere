@@ -19,7 +19,7 @@ const cancelDelete = () => {
         try{
             await axios.delete(`${baseURL}/${storyId}/comments/${commentId}`,{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
                   //console.log(response.data)
-                  //window.location.href = `/stories/${storyId}`;
+                  window.location.href = `${baseURL}/stories/${storyId}`;
                   navigate(`/stories/${storyId}`)
 
                 });

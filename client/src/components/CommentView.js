@@ -30,7 +30,8 @@ const handleUpdate = async () => {
   .then((result) => {
    // console.log(result.data);
   });
-  navigate(`/stories/${storyId}`)
+  window.location.href = `${baseURL}/stories/${storyId}`
+
 } catch(err) {
    //console.log(err)
   }
