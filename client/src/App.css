@@ -409,6 +409,17 @@ form input:focus{
   display: flex;
   justify-content: center;
   margin-top: 1em;
+  color: #64FFDA;
+}
+.loaderComment{
+  display: flex;
+  justify-content: center;
+  color: #64FFDA;
+}
+.loadingComment{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600; 
 }
 .accountSection{
  margin: 5em 0.5em;

@@ -32,7 +32,7 @@ const handleUpdate = async () => {
    // console.log(result.data);
   });
   navigate(`/stories/${storyId}`);
-  window.location.reload();
+  
 
 } catch(err) {
    console.log(err)
