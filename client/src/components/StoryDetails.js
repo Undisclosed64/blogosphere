@@ -10,7 +10,6 @@ import {FaUserCircle} from 'react-icons/fa';
 
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
-const ClientBaseURL = "https://secret-garden-80299.herokuapp.com/stories";
 
 function StoryDetails(props){
   const [story, setStory] = React.useState(null);
@@ -49,9 +48,11 @@ function StoryDetails(props){
     
   try{
   await axios.put(`${baseURL}/${storyId}`, {title,text,comments},{ headers: {"Authorization" : `Bearer ${token}`}})
-  window.location.href=`${ClientBaseURL}/${storyId}`
+  //window.location.href=`${ClientBaseURL}/${storyId}`;
+  navigate(`/stories/${storyId}`);
+  window.location.reload();
   } catch(err) {
-   //console.log(err)
+   console.log(err)
   }
 }
 const handleOnClick = () => {
