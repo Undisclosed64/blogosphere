@@ -2,6 +2,8 @@ import React from 'react';
 import '../App.css';
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 const baseURL = "https://secret-garden-80299.herokuapp.com/api/stories"; 
 
@@ -10,6 +12,7 @@ function Comment(props) {
   const [formData, setFormData] = useState({
     comment: "",
   });
+  const navigate = useNavigate();
 
   //access story id from props
   const storyId = props.storyId;
@@ -27,7 +30,9 @@ function Comment(props) {
      //make the request
       axios.post(`${baseURL}/${storyId}/comments`,{comment},{ headers: {"Authorization" : `Bearer ${token}`}}).then((response) => {
          //console.log(response.data);
-         window.location.href = `${baseURL}/stories/${storyId}`
+        // window.location.href = `${baseURL}/stories/${storyId}`
+        navigate(`/stories/${storyId}`);
+      
     });
   }
    

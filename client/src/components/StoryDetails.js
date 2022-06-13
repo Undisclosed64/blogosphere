@@ -47,7 +47,9 @@ function StoryDetails(props){
     
   try{
   await axios.put(`${baseURL}/${storyId}`, {title,text,comments},{ headers: {"Authorization" : `Bearer ${token}`}})
-  window.location.href=`/stories/${storyId}`
+  //window.location.href=`/stories/${storyId}`
+  navigate(`/stories/${storyId}`)
+
   } catch(err) {
    //console.log(err)
   }
