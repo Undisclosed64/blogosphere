@@ -50,7 +50,7 @@ function StoryDetails(props){
     
   try{
   await axios.put(`${baseURL}/${storyId}`, {title,text,comments},{ headers: {"Authorization" : `Bearer ${token}`}})
-  window.location.href=`${baseURL}/stories/${storyId}`
+  window.location.href=`${baseURL}/${storyId}`
   } catch(err) {
    //console.log(err)
   }
