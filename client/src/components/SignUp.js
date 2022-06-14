@@ -38,7 +38,7 @@ function SignUp() {
         <label htmlFor="username">Username</label>
         <input type="text"onChange = {(e) => setFormData({...formData,username: e.target.value})}  name="username"placeholder='Your name'value={formData.username}/>
         <label htmlFor="password">Password</label>
-        <input type="text" onChange = {(e) => setFormData({...formData, password: e.target.value})}  name="password"placeholder='Create password'value={formData.password}/>
+        <input type="password" onChange = {(e) => setFormData({...formData, password: e.target.value})}  name="password"placeholder='Create password'value={formData.password}/>
         <button type="submit">Submit</button>
         </form>     
         </div>
