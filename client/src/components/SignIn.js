@@ -14,23 +14,31 @@ function SignIn() {
     e.preventDefault();
     const username = formData.username;
     const password = formData.password;
-
-    axios
-      .post("https://real-tick-suit.cyclic.app/api/auth/sign-in", {
-        username,
-        password,
-      })
-      .then((result) => {
-        if (!result.data.message) {
-          const token = result.data.token;
-          console.log(result.data);
-          saveToken(token);
-          window.location.href = "/";
-        } else {
-          console.log(result.data);
-          setErrorMsg(result.data.message);
-        }
-      });
+    if (username || password === "") {
+      setErrorMsg("Input field can not be empty!");
+      setTimeout(() => {
+        setErrorMsg("");
+      }, 2000);
+    } else
+      axios
+        .post("https://real-tick-suit.cyclic.app/api/auth/sign-in", {
+          username,
+          password,
+        })
+        .then((result) => {
+          if (!result.data.message) {
+            const token = result.data.token;
+            // console.log(result.data);
+            saveToken(token);
+            window.location.href = "/";
+          } else {
+            // console.log(result.data);
+            setErrorMsg(result.data.message);
+            setTimeout(() => {
+              setErrorMsg("");
+            }, 2000);
+          }
+        });
   }
   function saveToken(token) {
     localStorage.setItem("token", `${token}`);
