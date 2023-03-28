@@ -34,7 +34,7 @@ function Nav() {
               Log in
             </Link>
             <Link to="/sign-up" className="navLinkRight" id="createAccountLink">
-              Create account
+              Sign up
             </Link>
           </div>
         ) : (
