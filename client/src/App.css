@@ -19,6 +19,7 @@ nav {
   padding: 1em;
   /* background-color: #0a192f; */
   background-color: #ffffff;
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
 }
 .rhs-links {
   display: flex;
@@ -50,9 +51,11 @@ button:hover {
   padding: 0 1.5em;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 500;
 }
 .navLinkRight {
   color: rgb(29, 21, 18);
+  font-weight: 500;
 }
 #logOutLink {
   margin-right: 1.5em;
@@ -60,11 +63,13 @@ button:hover {
 }
 #createAccountLink {
   border: 1px solid;
-  padding: 0.6em;
-  border-radius: 2px;
+  padding: 0.8rem 2.5rem;
+  border-radius: 40px;
+  background-color: rgb(29, 21, 18);
   margin-right: 1.5em;
   margin-left: 3.5em;
   font-size: 14px;
+  color: #ffffff;
 }
 @media only screen and (max-width: 600px) {
   .toggle-button {
@@ -136,6 +141,9 @@ button:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   background-color: #fafafa;
 }
+.story-wrapper:hover {
+  cursor: pointer;
+}
 .blogImg {
   width: 100%;
   display: block;
@@ -168,7 +176,8 @@ button:hover {
 }
 .story-title {
   font-weight: 600;
-  color: #292929;
+  /* color: #292929; */
+  color: rgb(29, 21, 18);
 }
 .story-desc {
   overflow: hidden;
@@ -183,10 +192,9 @@ button:hover {
 }
 .story-model-container {
   padding: 5em 1.5em;
-  color: #292929;
+  color: rgb(29, 21, 18);
   max-width: 500px;
   margin: 0 auto;
-  background-color: #ffffff;
 }
 
 .author-profile {
@@ -196,7 +204,7 @@ button:hover {
 .model-author-icon {
   font-size: 3em;
   margin-right: 0.3em;
-  color: #292929;
+  color: #757575;
 }
 .model-author-date {
   display: flex;
@@ -215,14 +223,16 @@ button:hover {
   text-transform: capitalize;
   padding: 1em 0;
 }
-.model-blog-img {
+.blogImgModel {
   width: 100%;
   display: block;
+  border-radius: 0.3rem;
 }
 .modelStoryDesc {
   margin: 2em 0;
   font-size: 1.1rem;
   line-height: 35px;
+  text-align: justify;
 }
 .comment-section {
   color: #232629;
