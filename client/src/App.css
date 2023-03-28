@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
-  padding:0;
+  padding: 0;
 }
 
-body{
-  font-family: 'Poppins', sans-serif;
+body {
+  font-family: "Poppins", sans-serif;
 }
-a{
+a {
   text-decoration: none;
 }
 nav {
@@ -17,16 +17,19 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1em;
-  background-color: #0A192F;
+  /* background-color: #0a192f; */
+  background-color: #ffffff;
 }
-.rhs-links{
+.rhs-links {
   display: flex;
   align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
-button:hover{
+button:hover {
   cursor: pointer;
 }
-.toggle-button{
+.toggle-button {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -39,26 +42,25 @@ button:hover{
 .bar {
   height: 2px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(29, 21, 18);
   border-radius: 10px;
 }
-.navLinkLeft{
-color: #f2f2f2;
-font-size: 17px;
-padding: 0 1.5em;
+.navLinkLeft {
+  color: rgb(29, 21, 18);
+  padding: 0 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .navLinkRight {
-  color: #f2f2f2;
-  font-size: 17px;
+  color: rgb(29, 21, 18);
 }
-#logOutLink{
+#logOutLink {
   margin-right: 1.5em;
   margin-left: 3.5em;
 }
-#createAccountLink{
-  border: 1px solid #64FFDA;
-  color: #64FFDA;
-  padding: 1em;
+#createAccountLink {
+  border: 1px solid;
+  padding: 0.6em;
   border-radius: 2px;
   margin-right: 1.5em;
   margin-left: 3.5em;
@@ -84,218 +86,213 @@ padding: 0 1.5em;
     text-align: center;
     margin: 0.5em 0;
   }
-  #logInLink{
+  #logInLink {
     margin-bottom: 2em;
   }
-  #createAccountLink,#logOutLink{
-   margin: auto;
+  #createAccountLink,
+  #logOutLink {
+    margin: auto;
   }
-  .rhs-links.active{
+  .rhs-links.active {
     display: flex;
     margin: 3em 0;
   }
 }
 
-.homePage{
-  background-image: url("https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bGFwdG9wJTIwZGVza3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
+.homePage {
+  background-image: url("C:\Users\nasim\Downloads\vecteezy_abstract-black-luxury-papercut-background__385\vecteezy_abstract-black-luxury-papercut-background_.jpg");
   background-repeat: no-repeat;
-  padding: 5em 1em;
+  padding: 5em 2em;
   background-position: bottom;
   background-size: cover;
-} 
-#blog-name{
-  font-size: 2.2rem;
-  margin-bottom: 0.3em;
-  color: #0A192F;
 }
-.blog-intro{
-  font-size: 1.1rem;
+#blog-name {
+  font-size: 2.5rem;
+  margin-bottom: 0.4em;
+  /* color: #0a192f; */
+  color: #ffffff;
+}
+.blog-intro {
   line-height: 30px;
-  color: #0a192d;
-
+  color: #7a7a7a;
+  max-width: 100%;
+  text-align: justify;
 }
-.section-story{
+.section-story {
   background-color: #f4f0f0;
-
 }
-.story-container{
+.story-container {
   max-width: 1000px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap:30px;
+  gap: 30px;
   margin: 0 auto;
   padding: 5em 1em;
 }
 
-.story-wrapper{
+.story-wrapper {
   margin: 2em 0;
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   background-color: #fafafa;
 }
-.blogImg{
+.blogImg {
   width: 100%;
   display: block;
   border-top-right-radius: 0.5rem;
   border-top-left-radius: 0.5rem;
 }
-.blogImgModel{
+.blogImgModel {
   width: 100%;
   display: block;
 }
-.story-info{
+.story-info {
   line-height: 1.8;
   padding: 15px;
 }
-.publish-info{
+.publish-info {
   display: flex;
   color: #757575;
   font-weight: 500;
 }
-.author-profile{
+.author-profile {
   display: flex;
   align-items: center;
 }
-.author-icon{
+.author-icon {
   font-size: 1.2em;
   margin-right: 0.3em;
 }
-.seperator{
- margin: 0 0.1em;
+.seperator {
+  margin: 0 0.1em;
 }
-.story-title{
+.story-title {
   font-weight: 600;
   color: #292929;
 }
-.story-desc{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    color: #757575;
-    line-height: 28px;    
-    margin-top: 0.8em;
-    margin-bottom: 1.8em;
-
+.story-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #757575;
+  line-height: 28px;
+  margin-top: 0.8em;
+  margin-bottom: 1.8em;
 }
-.story-model-container{
- padding: 5em 1.5em;
- color: #292929;
- max-width: 500px;
- margin: 0 auto;
- background-color: #FFFFFF;
-
+.story-model-container {
+  padding: 5em 1.5em;
+  color: #292929;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #ffffff;
 }
 
-.author-profile{
+.author-profile {
   display: flex;
   font-size: 1rem;
 }
-.model-author-icon{
+.model-author-icon {
   font-size: 3em;
   margin-right: 0.3em;
   color: #292929;
-
 }
-.model-author-date{
+.model-author-date {
   display: flex;
   flex-direction: column;
 }
-.model-date{
+.model-date {
   color: #757575;
   padding-top: 0.2em;
 }
-.editDeleteCell{
+.editDeleteCell {
   display: flex;
   justify-content: flex-end;
-
 }
-.model-story-title{
+.model-story-title {
   font-size: 2rem;
   text-transform: capitalize;
   padding: 1em 0;
 }
-.model-blog-img{
+.model-blog-img {
   width: 100%;
   display: block;
 }
-.modelStoryDesc{
-   margin: 2em 0;
+.modelStoryDesc {
+  margin: 2em 0;
   font-size: 1.1rem;
-  line-height: 35px;  
-
+  line-height: 35px;
 }
-.comment-section{
-  color:#232629;
+.comment-section {
+  color: #232629;
 }
-.comments-header{
+.comments-header {
   font-size: 2rem;
-  border-bottom: 1.5px solid hsl(210,8%,90%);
+  border-bottom: 1.5px solid hsl(210, 8%, 90%);
   margin-bottom: 1em;
   font-weight: 600;
- 
 }
-.comment-form{
+.comment-form {
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   display: flex;
-  padding:1em;
+  padding: 1em;
   justify-content: center;
   flex-direction: column;
 }
-.comment-input{
-  border:none;
+.comment-input {
+  border: none;
   width: 100%;
   margin-bottom: 2em;
   font-size: 1rem;
 }
-.comment-input:focus{
+.comment-input:focus {
   outline: none;
 }
 .comment-input::placeholder {
-  color:#757575;
-  font-family: 'Poppins', sans-serif;
+  color: #757575;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
 }
-.comment-submit{
+.comment-submit {
   background: rgb(26, 137, 23);
-  border:none;
+  border: none;
   padding: 0.5em 1em;
   color: #f0f2f5;
   font-size: 1rem;
   border-radius: 20px;
 }
-.comment-wrapper{
-  border-bottom: 1.5px solid hsl(210,8%,90%);
+.comment-wrapper {
+  border-bottom: 1.5px solid hsl(210, 8%, 90%);
   margin: 2em 0;
 }
-#commentAuthorIcon{
+#commentAuthorIcon {
   font-size: 2rem;
   margin-right: 0.3em;
   color: #757575;
 }
-.comment-info{
+.comment-info {
   display: flex;
   font-weight: 500;
 }
-.commentUserDate{
+.commentUserDate {
   display: flex;
   flex-direction: column;
 }
-.comment-time{
+.comment-time {
   font-size: 0.8rem;
   color: #757575;
 }
-.comment-text{
+.comment-text {
   padding: 1em 2.5em;
   font-size: 1rem;
   line-height: 30px;
 }
-.commentView{
+.commentView {
   margin: 0 auto;
   max-width: 1000px;
 }
-.comment-model{
+.comment-model {
   margin: 5em 1em;
   padding: 1em;
   min-height: 200px;
@@ -306,63 +303,64 @@ padding: 0 1.5em;
   flex-direction: column;
 }
 
-.editDelGroup{
+.editDelGroup {
   margin-bottom: 1em;
 }
-.commentBtn{
- font-size: 2rem;
+.commentBtn {
+  font-size: 2rem;
 }
-#edBtn{
+#edBtn {
   color: rgb(26, 137, 23);
   cursor: pointer;
 }
-#delBtn{
+#delBtn {
   color: red;
   cursor: pointer;
 }
-.commentEditInput{
+.commentEditInput {
   padding: 2em;
   width: 80%;
   border-radius: 5px;
-  border:1px solid #aaa;
-
+  border: 1px solid #aaa;
 }
-.commentEditInput:focus{
- outline: none; 
+.commentEditInput:focus {
+  outline: none;
 }
-.updateBtn{
+.updateBtn {
   margin: 1.5em 0;
   font-size: 1rem;
   padding: 0.6em 3em;
   border-radius: 5px;
   background-color: rgb(26, 137, 23);
   color: white;
-  border:none;
+  border: none;
 }
-#signUpSection,#signInSection{
-padding: 5em 1em;
-max-width: 500px;
-color: #292929;
-margin: 0 auto;
+#signUpSection,
+#signInSection {
+  padding: 5em 1em;
+  max-width: 500px;
+  color: #292929;
+  margin: 0 auto;
 }
-.form{
+.form {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding:2em 1em;
+  padding: 2em 1em;
   max-width: 400px;
   min-height: 400px;
 }
-.signUpHeader,.signInHeader{
+.signUpHeader,
+.signInHeader {
   font-weight: 500;
   font-size: 2rem;
   text-align: center;
 }
-.form label{
+.form label {
   display: block;
   margin-top: 30px;
   font-size: 16px;
   font-weight: 500;
 }
-.form input{
+.form input {
   display: block;
   height: 50px;
   width: 100%;
@@ -371,19 +369,19 @@ margin: 0 auto;
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
-  border:1px solid #757575
+  border: 1px solid #757575;
 }
-form input:focus{
+form input:focus {
   outline: none;
 }
 .form input::placeholder {
-  color:#757575;
-  font-family: 'Poppins', sans-serif;
+  color: #757575;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
 }
-.form button{
+.form button {
   cursor: pointer;
-  border:none;
+  border: none;
   background: rgb(26, 137, 23);
   color: white;
   text-transform: uppercase;
@@ -395,40 +393,40 @@ form input:focus{
   letter-spacing: 1px;
   font-size: 1rem;
 }
-.errorMsg,.homePageError{
+.errorMsg,
+.homePageError {
   font-size: 1.5rem;
   margin-bottom: 1em;
   color: #d00000;
   font-weight: 500;
   text-align: center;
 }
-.homePageError{
+.homePageError {
   font-size: 1.5rem;
   margin: 2em 1em;
   font-weight: 500;
   text-align: center;
 }
-.loader{
+.loader {
   display: flex;
   justify-content: center;
   margin-top: 1em;
-  color: #64FFDA;
+  color: #64ffda;
 }
-.loaderComment{
+.loaderComment {
   display: flex;
   justify-content: center;
-  color: #64FFDA;
+  color: #64ffda;
 }
-.loadingComment{
+.loadingComment {
   text-align: center;
   font-size: 2rem;
-  font-weight: 600; 
+  font-weight: 600;
 }
-.accountSection{
- margin: 5em 0.5em;
-
+.accountSection {
+  margin: 5em 0.5em;
 }
-.accountView{
+.accountView {
   background-color: #f0f2f5;
   display: flex;
   padding: 1em;
@@ -436,17 +434,17 @@ form input:focus{
   min-height: 400px;
   flex-direction: column;
   border-radius: 10px;
-  color:#292929;
+  color: #292929;
   max-width: 400px;
   align-items: center;
 }
 
-.user{
+.user {
   font-size: 2rem;
   margin-right: 0.3em;
   height: 50px;
   width: 50px;
-  background-color:#292929;
+  background-color: #292929;
   padding: 0.1em;
   border-radius: 50%;
   display: flex;
@@ -455,171 +453,168 @@ form input:focus{
   justify-content: center;
   align-items: center;
 }
-.user-control{
+.user-control {
   display: flex;
 }
 
-.username{
+.username {
   font-size: 2rem;
   font-weight: 500;
 }
-#accountDesc{
- padding: 6em 0;
- font-size: 1.1rem;
- text-align: center;
- color:#757575
-
+#accountDesc {
+  padding: 6em 0;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #757575;
 }
-.logOut{
+.logOut {
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
   margin-top: 4em;
 }
-.logInAsk{
-color: #757575;
-font-size: 1.3rem;
-text-decoration: underline;
-
+.logInAsk {
+  color: #757575;
+  font-size: 1.3rem;
+  text-decoration: underline;
 }
-.deleteCommentContainer{
- background-color: #f0f2f5;
- padding: 2em;
- height: 100vh;
- line-height: 1.8;
- font-size: 1rem;
- text-align: center;
+.deleteCommentContainer {
+  background-color: #f0f2f5;
+  padding: 2em;
+  height: 100vh;
+  line-height: 1.8;
+  font-size: 1rem;
+  text-align: center;
 }
-.deleteCommentBtns{
+.deleteCommentBtns {
   margin-top: 1em;
 }
-.btn-cancel,.btn-confirm{
+.btn-cancel,
+.btn-confirm {
   padding: 0.5em 2em;
   font-size: 1rem;
   border-radius: 25px;
-  border:1px solid #232629;
+  border: 1px solid #232629;
 }
-.btn-confirm{
+.btn-confirm {
   background-color: #d00000;
   color: white;
-  border:none;
+  border: none;
   padding: 0.6em 2.1em;
   margin-left: 1em;
-
 }
-.commentDeletedPage{
+.commentDeletedPage {
   margin: 4em 1em;
   text-align: center;
   line-height: 1.8;
 }
-.commentDeletedPage h1{
+.commentDeletedPage h1 {
   font-size: 5rem;
 }
 @media only screen and (min-width: 400px) {
-  .homePage{
+  .homePage {
     padding: 6em 2em;
-  } 
-  #blog-name{
+  }
+  #blog-name {
     font-size: 2.5rem;
   }
-  .story-container{
+  .story-container {
     padding: 5em 2em;
   }
-  .seperator{
-    margin:0 0.4em;
-   }
-   .comment-form{
+  .seperator {
+    margin: 0 0.4em;
+  }
+  .comment-form {
     flex-direction: row;
   }
-  .comment-input{
+  .comment-input {
     margin-bottom: 0;
   }
-  #signUpSection,#signInSection{
+  #signUpSection,
+  #signInSection {
     padding: 5em 2em;
-    
-    }
-    .accountSection{
-      margin: 5em 2em;
-     }
-     .accountView{
-       padding: 2em 1em;
-     }
- 
-  
+  }
+  .accountSection {
+    margin: 5em 2em;
+  }
+  .accountView {
+    padding: 2em 1em;
+  }
 }
 @media only screen and (min-width: 468px) {
-
-  #signUpSection,#signInSection{
+  #signUpSection,
+  #signInSection {
     padding: 5em 4em;
-    
-    }
+  }
 }
 @media only screen and (min-width: 554px) {
-  #blog-name{
-    font-size: 3rem;
+  #blog-name {
+    font-size: 4rem;
   }
-  .story-container{
+  .blog-intro {
+    max-width: 80%;
+  }
+  .story-container {
     padding: 6em 6em;
   }
-  .story-wrapper{
+  .story-wrapper {
     margin: 2.5em 0;
   }
-  
-  .form{
-    padding:2em 2em;
+
+  .form {
+    padding: 2em 2em;
   }
 }
 
 @media only screen and (min-width: 668px) {
-  .story-container{
+  .story-container {
     padding: 6em 10em;
-  
   }
 }
 @media only screen and (min-width: 768px) {
-  #blog-name{
+  nav {
+    padding: 1em 3em;
+  }
+  #blog-name {
     font-size: 4rem;
   }
-  .homePage{
+  .homePage {
     padding: 8em 4em;
-  } 
-  .blog-intro{
+  }
+  .blog-intro {
     line-height: 33px;
     max-width: 70%;
   }
-  .story-container{
+  .story-container {
     padding: 6em 2em;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   }
-  .story-model-container{
+  .story-model-container {
     padding: 5em 2.5em;
     max-width: 700px;
-   }
-  .modelStoryDesc{
-   margin: 2.5em 0;
-
- }
+  }
+  .modelStoryDesc {
+    margin: 2.5em 0;
+  }
 }
 @media only screen and (min-width: 814px) {
-  .story-container{
+  .story-container {
     padding: 6em 4em;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 @media only screen and (min-width: 936px) {
-  .story-container{
+  .story-container {
     padding: 6em 6em;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
-  .story-info{
+  .story-info {
     padding: 20px;
   }
-  
-  
 }
 
 @media only screen and (min-width: 1300px) {
-  .blog-intro{
+  .blog-intro {
     line-height: 33px;
     max-width: 50%;
   }
