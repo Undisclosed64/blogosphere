@@ -9,20 +9,20 @@ function Home(props) {
   const path = "https://real-tick-suit.cyclic.app/images/";
 
   //define funtion to navigate to story model route
-  function storyModelNavigate(id) {
+  const storyModelNavigate = (id) => {
     navigate(`/stories/${id}`);
-  }
+  };
   return (
     <section className="section-home">
       <div className="homePage">
-        <h1 id="blog-name">Techno Diary</h1>
+        <h1 id="blog-name">Blogosphere</h1>
         <p className="blog-intro">
-          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged.{" "}
+          Welcome to Blogosphere! This platform is for the aspiring developers
+          to learn their favorite technical concepts. We want this to be the one
+          stop destination for writers and readers who are curious about
+          technology. In the coming time, you will be able to learn web
+          development and technical writing through this single platform. Until
+          then, thanks for sticking!{" "}
         </p>
       </div>
 
