@@ -13,7 +13,6 @@ import Account from "./components/Account";
 import LogOut from "./components/LogOut";
 import DeleteComment from "./components/DeleteComment";
 import Footer from "./components/Footer";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const baseURL = "https://real-tick-suit.cyclic.app/api";
@@ -23,7 +22,7 @@ function App() {
   const [user, setUser] = React.useState(null);
   const [err, setErrMsg] = React.useState("");
   const token = localStorage.getItem("token");
-  const [pathname, setPathName] = useState("");
+  const [path, setPath] = useState("/");
 
   //get posts
   React.useEffect(() => {
@@ -37,14 +36,16 @@ function App() {
         //console.log(err)
         setErrMsg(err);
       });
-  }, []);
+  }, [post]);
 
   React.useEffect(() => {
-    console.log(pathname);
-    if (window.location.pathname === "/") {
-      setPathName("/");
+    if (window.location.pathname !== "/") {
+      setPath(window.location.pathname);
+    } else {
+      setPath("/");
     }
-  }, [pathname]);
+    console.log("current path:", path);
+  }, [path, window.location.pathname]);
 
   //get current user
   React.useEffect(() => {
@@ -110,7 +111,8 @@ function App() {
           <Route exact path="/log-out" element={<LogOut></LogOut>} />
         </Routes>
       </BrowserRouter>
-      {pathname ? <Footer /> : ""}
+
+      {path === "/" ? <Footer /> : ""}
     </div>
   );
 }
