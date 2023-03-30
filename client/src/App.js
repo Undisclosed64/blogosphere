@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Loader from "./components/Loader";
@@ -12,6 +12,7 @@ import CommentView from "./components/CommentView";
 import Account from "./components/Account";
 import LogOut from "./components/LogOut";
 import DeleteComment from "./components/DeleteComment";
+import Footer from "./components/Footer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -22,6 +23,7 @@ function App() {
   const [user, setUser] = React.useState(null);
   const [err, setErrMsg] = React.useState("");
   const token = localStorage.getItem("token");
+  const [pathname, setPathName] = useState("");
 
   //get posts
   React.useEffect(() => {
@@ -36,6 +38,13 @@ function App() {
         setErrMsg(err);
       });
   }, []);
+
+  React.useEffect(() => {
+    console.log(pathname);
+    if (window.location.pathname === "/") {
+      setPathName("/");
+    }
+  }, [pathname]);
 
   //get current user
   React.useEffect(() => {
@@ -54,6 +63,7 @@ function App() {
   } else {
     return <div className="homePageError">Error: Failed to fetch:( </div>;
   }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -100,6 +110,7 @@ function App() {
           <Route exact path="/log-out" element={<LogOut></LogOut>} />
         </Routes>
       </BrowserRouter>
+      {pathname ? <Footer /> : ""}
     </div>
   );
 }
