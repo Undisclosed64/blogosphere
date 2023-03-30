@@ -117,6 +117,10 @@ button:hover {
   /* color: #0a192f; */
   color: #ffffff;
 }
+#blog-name span {
+  color: #64ffda;
+  padding-left: 3px;
+}
 .blog-intro {
   line-height: 30px;
   color: #7a7a7a;
@@ -357,12 +361,14 @@ button:hover {
   padding: 2em 1em;
   max-width: 400px;
   min-height: 400px;
+  margin-bottom: 3em;
 }
 .signUpHeader,
 .signInHeader {
   font-weight: 500;
   font-size: 2rem;
   text-align: center;
+  color: rgb(29, 21, 18);
 }
 .form label {
   display: block;
@@ -392,8 +398,9 @@ form input:focus {
 .form button {
   cursor: pointer;
   border: none;
-  background: rgb(26, 137, 23);
-  color: white;
+  /* background: rgb(26, 137, 23); */
+  background: rgb(29, 21, 18);
+  color: #ffffff;
   text-transform: uppercase;
   margin-top: 50px;
   width: 100%;
@@ -520,6 +527,48 @@ form input:focus {
 }
 .commentDeletedPage h1 {
   font-size: 5rem;
+}
+.footer {
+  background: black;
+  color: white;
+  padding: 3em 1em;
+  gap: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top-right-radius: 110px;
+}
+.brandName {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.brandName span {
+  color: #64ffda;
+  font-weight: 700;
+  padding-left: 3px;
+}
+.socials {
+  line-height: 34px;
+  display: flex;
+  flex-direction: column;
+}
+.socials a {
+  color: #7a7a7a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.socials a:hover {
+  color: #64ffda;
+}
+.closingLine {
+  margin-top: 1em;
+}
+.closingLine a {
+  font-weight: 600;
+  color: #64ffda;
 }
 @media only screen and (min-width: 400px) {
   .homePage {
