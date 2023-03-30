@@ -15,7 +15,9 @@ function Home(props) {
   return (
     <section className="section-home">
       <div className="homePage">
-        <h1 id="blog-name">Blogosphere</h1>
+        <h1 id="blog-name">
+          Blogosphere<span>.</span>
+        </h1>
         <p className="blog-intro">
           Welcome to Blogosphere! This platform is for the aspiring developers
           to learn their favorite technical concepts. We want this to be the one
